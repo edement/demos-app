@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../../constants/colors';
 
 const USER = {
-  name: 'Иван Петров',
+  name: 'Егор Петров',
   email: 'ivan@demokrat.ru',
   role: 'Тренер',
   avatar: 'ИП',

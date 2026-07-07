@@ -1,11 +1,5 @@
 import ClassCard from '@/components/feed/class-card';
-import { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import FeaturedBanner from '../../components/feed/feature-banner';
-import FeedTabs from '../../components/feed/feed-tabs';
-import SearchBar from '../../components/feed/search-bar';
-import StyleFilters from '../../components/feed/style-filters';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { colors } from '../../constants/colors';
 
 const CLASSES = [
@@ -61,31 +55,27 @@ const CLASSES = [
 
 export default function Feed() {
   return (
-  <View style={styles.debugPosition}>
-    <ClassCard 
-      key={4}
-      title={'Вакинг для всех'}
-      trainer={'Дмитрий Козлов'}
-      date={'18 марта'}
-      time={'20:00'}
-      location={'Студия Demos, зал 1'}
-      price={'1000 ₽'}
-      style={'Вакинг'}
-      image={'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?q=80&w=1974'}
-      onPress={() => {}}
+    <View style={styles.container}>
+      <FlatList
+      data={CLASSES}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <ClassCard
+            item={item}
+            onPress={() => {}}
+        />
+      )}
+      contentContainerStyle={{
+        alignItems: 'center',
+        paddingHorizontal: 16,
+        paddingVertical: 20,
+      }}
     />
-  </View>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  debugPosition: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-
   container: {
     flex: 1,
     backgroundColor: colors.charcoal,
