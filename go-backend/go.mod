@@ -2,7 +2,7 @@ module github.com/edement/social
 
 go 1.25.2
 
-require github.com/go-chi/chi/v5 v5.2.5
+require github.com/go-chi/chi/v5 v5.3.1
 
 require (
 	github.com/BurntSushi/toml v1.2.1 // indirect
